@@ -1,0 +1,6 @@
+framework module Pods_Idillika {
+  umbrella header "Pods-Idillika-umbrella.h"
+
+  export *
+  module * { export * }
+}
