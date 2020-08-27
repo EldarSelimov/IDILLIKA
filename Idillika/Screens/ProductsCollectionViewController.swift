@@ -11,6 +11,7 @@ import UIKit
 fileprivate let reuseIdentifier = "productCell"
 
 class ProductsCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     private let cartManager = CartManager.shared
     
@@ -18,6 +19,8 @@ class ProductsCollectionViewController: UICollectionViewController, UICollection
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         navigationItem.title = navigationItem.title?.uppercased()
         NetworkManager.shared.getProductList(succes: { [weak self] (products) in
             self?.productsLoaded(products)
@@ -29,6 +32,9 @@ class ProductsCollectionViewController: UICollectionViewController, UICollection
     
     
     private func productsLoaded(_ list: [ProductModel]) {
+        
+        activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
         self.products = list
         collectionView.reloadData()
     }

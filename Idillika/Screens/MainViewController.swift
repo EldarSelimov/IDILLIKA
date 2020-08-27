@@ -12,7 +12,6 @@ class MainViewController: UIViewController {
 
     @IBOutlet weak var showButton: UIButton!
     
-
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
